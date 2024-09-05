@@ -683,28 +683,36 @@ LatexCmds.coprod = LatexCmds.coproduct = () =>
 LatexCmds['∫'] =
   LatexCmds['int'] =
   LatexCmds.integral =
-    class extends SummationNotation {
-      constructor() {
-        var htmlTemplate =
-          '<span class="mq-int mq-non-leaf">' +
-          '<big>&int;</big>' +
-          '<span class="mq-supsub mq-non-leaf">' +
-          '<span class="mq-sup"><span class="mq-sup-inner">&1</span></span>' +
-          '<span class="mq-sub">&0</span>' +
-          '<span style="display:inline-block;width:0">&#8203</span>' +
-          '</span>' +
-          '</span>';
-        super('\\int ', '', 'integral');
+    () =>
+      new MQSymbol(
+        '\\int',
+        '<span class="mq-int mq-non-leaf"><big>&int;</big></span>',
+        'ans'
+      );
 
-        this.ariaLabel = 'integral';
-        this.htmlTemplate = htmlTemplate;
-      }
+LatexCmds['defint'] = LatexCmds.defintegral = class extends SummationNotation {
+  constructor() {
+    var htmlTemplate =
+      '<span class="mq-int mq-non-leaf">' +
+      '<big>&int;</big>' +
+      '<span class="mq-supsub mq-non-leaf">' +
+      '<span class="mq-sup"><span class="mq-sup-inner">&1</span></span>' +
+      '<span class="mq-sub">&0</span>' +
+      '<span style="display:inline-block;width:0">&#8203</span>' +
+      '</span>' +
+      '</span>';
+    super('\\defint ', '', 'defintegral');
 
-      createLeftOf(cursor: Cursor) {
-        // FIXME: refactor rather than overriding
-        MathCommand.prototype.createLeftOf.call(this, cursor);
-      }
-    };
+    this.ariaLabel = 'integral';
+    this.htmlTemplate = htmlTemplate;
+  }
+
+  createLeftOf(cursor: Cursor) {
+    // FIXME: refactor rather than overriding
+    MathCommand.prototype.createLeftOf.call(this, cursor);
+  }
+};
+
 var Fraction =
   (LatexCmds.frac =
   LatexCmds.dfrac =
