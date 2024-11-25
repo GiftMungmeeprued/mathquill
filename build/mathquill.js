@@ -6892,7 +6892,7 @@ var __extends = (this && this.__extends) || (function () {
                 '<span style="display:inline-block;width:0">&#8203</span>' +
                 '</span>' +
                 '</span>';
-            _this = _super.call(this, '\\defint ', '', 'defintegral') || this;
+            _this = _super.call(this, '\\int ', '', 'integral') || this;
             _this.ariaLabel = 'integral';
             _this.htmlTemplate = htmlTemplate;
             return _this;
