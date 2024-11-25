@@ -5767,7 +5767,10 @@ var __extends = (this && this.__extends) || (function () {
     LatexCmds["'"] = LatexCmds.prime = bindVanillaSymbol("'", '&prime;', 'prime');
     LatexCmds['\u2033'] = LatexCmds.dprime = bindVanillaSymbol('\u2033', '&Prime;', 'double prime');
     LatexCmds.backslash = bindVanillaSymbol('\\backslash ', '\\', 'backslash');
-    LatexCmds.slash = bindVanillaSymbol('\\slash ', '/', 'slash');
+    var SlashBuilder = function () {
+        return new MQSymbol('/', '<span class="mq-nonSymbola mq-operator-name">/</span>', 'over');
+    };
+    LatexCmds.slash = SlashBuilder;
     if (!CharCmds['\\'])
         CharCmds['\\'] = LatexCmds.backslash;
     LatexCmds.$ = bindVanillaSymbol('\\$', '$', 'dollar');
