@@ -5767,10 +5767,6 @@ var __extends = (this && this.__extends) || (function () {
     LatexCmds["'"] = LatexCmds.prime = bindVanillaSymbol("'", '&prime;', 'prime');
     LatexCmds['\u2033'] = LatexCmds.dprime = bindVanillaSymbol('\u2033', '&Prime;', 'double prime');
     LatexCmds.backslash = bindVanillaSymbol('\\backslash ', '\\', 'backslash');
-    var SlashBuilder = function () {
-        return new MQSymbol('/', '<span class="mq-nonSymbola mq-operator-name">/</span>', 'over');
-    };
-    LatexCmds.slash = SlashBuilder;
     if (!CharCmds['\\'])
         CharCmds['\\'] = LatexCmds.backslash;
     LatexCmds.$ = bindVanillaSymbol('\\$', '$', 'dollar');
@@ -6251,6 +6247,10 @@ var __extends = (this && this.__extends) || (function () {
     }(BinaryOperator));
     CharCmds['~'] = LatexCmds.sim = Sim;
     LatexCmds['\u2248'] = LatexCmds.approx = Approx;
+    var SlashBuilder = function () {
+        return new MQSymbol('/', '<span class="mq-nonSymbola mq-operator-name">/</span>', 'over');
+    };
+    LatexCmds.slash = SlashBuilder;
     /***************************
      * Commands and Operators.
      **************************/
@@ -6878,7 +6878,7 @@ var __extends = (this && this.__extends) || (function () {
         LatexCmds['int'] =
             LatexCmds.integral =
                 function () {
-                    return new MQSymbol('\\int', '<span class="mq-int mq-non-leaf"><big>&int;</big></span>', 'ans');
+                    return new MQSymbol('\\int ', '<span class="mq-int mq-non-leaf"><big>&int;</big></span>', 'ans');
                 };
     LatexCmds['defint'] = LatexCmds.defintegral = /** @class */ (function (_super) {
         __extends(class_12, _super);
@@ -6892,7 +6892,7 @@ var __extends = (this && this.__extends) || (function () {
                 '<span style="display:inline-block;width:0">&#8203</span>' +
                 '</span>' +
                 '</span>';
-            _this = _super.call(this, '\\int ', '', 'integral') || this;
+            _this = _super.call(this, '\\defint ', '', 'defintegral') || this;
             _this.ariaLabel = 'integral';
             _this.htmlTemplate = htmlTemplate;
             return _this;
