@@ -685,7 +685,7 @@ LatexCmds['∫'] =
   LatexCmds.integral =
     () =>
       new MQSymbol(
-        '\\int',
+        '\\int ',
         '<span class="mq-int mq-non-leaf"><big>&int;</big></span>',
         'ans'
       );
