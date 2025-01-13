@@ -1271,3 +1271,12 @@ class Approx extends BinaryOperator {
 
 CharCmds['~'] = LatexCmds.sim = Sim;
 LatexCmds['≈'] = LatexCmds.approx = Approx;
+
+var SlashBuilder = function () {
+  return new MQSymbol(
+    '/',
+    '<span class="mq-nonSymbola mq-operator-name">/</span>',
+    'over'
+  );
+};
+LatexCmds.slash = SlashBuilder;
