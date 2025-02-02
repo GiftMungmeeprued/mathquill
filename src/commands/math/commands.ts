@@ -177,6 +177,15 @@ LatexCmds.dot = () => {
       '</span></span>'
   );
 };
+LatexCmds.ddot = () => {
+  return new MathCommand(
+    '\\ddot',
+    '<span class="mq-non-leaf"><span class="mq-dot-recurring-inner">' +
+      '<span class="mq-dot-recurring">&#xA8;</span>' +
+      '<span class="mq-empty-box">&0</span>' +
+      '</span></span>'
+  );
+};
 
 // `\textcolor{color}{math}` will apply a color to the given math content, where
 // `color` is any valid CSS Color Value (see [SitePoint docs][] (recommended),
